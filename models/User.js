@@ -40,16 +40,6 @@ const userSchema = new Schema (
     }
 );
 
-// userSchema.virtual('friendCount', {
-//     ref: User.length,
-//     localField: '_id',
-//     foreignField: 'friends',
-//     justOne: false,
-// },
-// {
-//     toJSON: { virtuals: true }
-// });
-
 // create a virtual called friendCount that retrieves the length of the User's friends array field on query.
 userSchema.virtual('friendCount').get(function () {
     return this.friends.length
