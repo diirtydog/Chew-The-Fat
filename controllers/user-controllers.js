@@ -1,3 +1,4 @@
+const req = require('express/lib/request');
 const { User, Thought } = require('../models');
 
 const userController = {
@@ -57,36 +58,23 @@ const userController = {
             .catch(err => res.status(400).json(err));
     },
 
-    deleteUser({ params }, res) {
-        Thought.deleteMany({ userId: params.id })
+    deleteUser({ params, body }, res) {
+        User.findOneAndDelete(
+            { _id: params.id })
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No user found with this id' });
+                    return;
+                }
+                return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+            })
             .then(() => {
-                User.findOneAndDelete({ _id: params.id })
-                .then(dbUserData => {
-                    if (!dbUserData) {
-                        res.status(404).json({ message: 'No user found at this id dude' });
-                        return;
-                    }
-                    res.json(dbUserData);
-                })
-                .catch(err => res.status(400).json(err));
-                }) 
-           
+                res.json({ message: 'They gone!'})
+            })
+            .catch(err => {
+                res.json(err);
+            });
     },
-
-    // deleteUser({ params }, res) {
-    //     Thought.deleteMany({ userId: params.id })
-    //       .then(() => {
-    //         User.findOneAndDelete({ userId: params.id })
-    //           .then(dbUserData => {
-    //             if (!dbUserData) {
-    //               res.status(404).json({ message: 'No User found with this id!' });
-    //               return;
-    //             }
-    //             res.json(dbUserData);
-    //           });
-    //       })
-    //       .catch(err => res.json(err));
-    //   },
 
     addFriend({ params }, res) {
         User.findOneAndUpdate(
@@ -118,8 +106,5 @@ const userController = {
     }
 
 };
-// _id: req.params.userId{ User }, // _id: req.params.userId
-        //     { $addToSet: { friends: req.params.friendId }  }, 
-        //     { new: true }
-        // )
+
 module.exports = userController;
