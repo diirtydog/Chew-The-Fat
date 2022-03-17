@@ -1,7 +1,7 @@
 # Chew-The-Fat  [Link to Website](https://github.com/diirtydog/Chew-The-Fat)
   ## License
-    This project is licensed under .
-  ![License](https://img.shields.io/badge/License--blue.svg)
+    This project is licensed under MIT.
+  ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
   ## Video Link : [Castify Video 1](https://drive.google.com/file/d/1GZYT2yncdbhZvzJsh3jjzNlrOCzAkVt9/view) [Castify Video 2](https://drive.google.com/file/d/1lcCIZUY3JyMIoEw1GXrH6p6RipkXKfvd/view) [Castify Video 3](https://drive.google.com/file/d/1kfn15XeL5G8F2SSBJFQcJtWsFU69t5Mm/view)
   <img src="assets/third and final video for chew the fat.gif" alt="">
