@@ -31,7 +31,7 @@
   ## Contributions
   [![GitHub Contributors Image](https://contrib.rocks/image?repo=diirtydog/Chew-The-Fat)](https://github.com/diirtydog/Chew-The-Fat)
   ## Testing Instructions
-  ![Insomnia](assets/insomnia.jpeg)
+  [![Insomnia](assets/insomnia.jpeg)](https://insomnia.rest/)
   ## Contact Information
   ### Andrew Wales   
   Github: https://github.com/diirtydog   
